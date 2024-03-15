@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.main_div {
+    background: linear-gradient(rgba(6, 28, 28, 0.4), rgba(6, 26, 26, 0.4)), url("../../images/room.jpeg");
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+}
+
+.heading {
+    margin-bottom: 5px;
+    padding-left: 110px;
+    font-family: "Playfair Display", serif;
+    font-size: 45px;
+
+}
+
+
+.text_box {
+    border: 1px solid white;
+    height: 43px;
+    width: 350px;
+    border-radius: 8px;
+    margin-top: 4px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+
+
+.button {
+    border: 1px solid #016A70;
+    background-color: #016A70;
+    margin-top: 15px;
+    margin-left: 90px;
+    font-size: 14px;
+    color: white;
+    width: 150px;
+    height: 45px;
+    border-radius: 20px;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+}
+
+.label {
+    font-size: 13px;
+    font-weight: 300;
+    font-family: "Poppins", sans-serif;
+}
+
+.links_div {
+    padding: 5px 0;
+}
+
+.link_div {
+    display: inline-block;
+    font-size: 13px;
+    color: #c4d6d7;
+    font-family: "Poppins", sans-serif;
+    padding-left: 12px;
+
+}
+
+.link {
+    font-size: 13px;
+    color: #c4d6d7;
+    font-weight: 300;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+
+}
+
+.link:hover {
+    color: rgb(46, 12, 73);
+}
+
+/* .mail-icon {
+    color: rgb(159, 159, 159);
+    position: relative;
+    font-size: 21px;
+    right: 40px;
+    top: 5px;
+} */
+
+.first_link {
+    margin-right: 100px;
+}
