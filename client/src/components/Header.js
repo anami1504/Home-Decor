@@ -1,8 +1,22 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { GiHummingbird } from "react-icons/gi";
+import { useAuth } from '../context/auth';
+import toast from 'react-hot-toast';
 
 function Header() {
+
+    const [auth, setAuth] = useAuth()
+    const handleLogout = () => {
+        setAuth({
+            ...auth,
+            user: null,
+            token: ""
+        })
+        localStorage.removeItem("auth")
+        toast.success("Logout Successful")
+    }
+
     return (
         <>
 
@@ -37,16 +51,31 @@ function Header() {
                                     Categories
                                 </NavLink>
                             </li>
-                            <li className="nav-item">
-                                <NavLink to='/login' style={{ paddingRight: "1rem" }} className="nav-link">
-                                    Login
-                                </NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink to='/signup' style={{ paddingRight: "1rem" }} className="nav-link">
-                                    Sign Up
-                                </NavLink>
-                            </li>
+
+                            {
+                                !auth.user ? (<>
+                                    <li className="nav-item">
+                                        <NavLink to='/login' style={{ paddingRight: "1rem" }} className="nav-link">
+                                            Login
+                                        </NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink to='/signup' style={{ paddingRight: "1rem" }} className="nav-link">
+                                            Sign Up
+                                        </NavLink>
+                                    </li>
+                                </>
+                                ) : (
+                                    <>
+                                        <li className="nav-item">
+                                            <NavLink to='/login' onClick={handleLogout} style={{ paddingRight: "1rem" }} className="nav-link">
+                                                Logout
+                                            </NavLink>
+                                        </li>
+                                    </>
+                                )
+                            }
+
                             <li className="nav-item">
                                 <NavLink to='/cart' className="nav-link">
                                     Cart(0)

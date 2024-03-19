@@ -6,11 +6,13 @@ import Reset from './pages/reset/Reset';
 import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
+import { Toaster } from 'react-hot-toast';
 
 
 function App() {
   return (
     <div>
+      <Toaster />
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/login' element={<Login />}></Route>

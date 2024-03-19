@@ -22,7 +22,7 @@
 
 .text_box {
     border: 1px solid white;
-    height: 38px;
+    height: 43px;
     width: 350px;
     border-radius: 8px;
     margin-top: 4px;
@@ -61,7 +61,7 @@
     font-size: 14px;
     color: #c4d6d7;
     font-weight: 500;
-    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+    font-family: "Poppins", sans-serif;
     text-decoration: none;
 }
 
@@ -75,11 +75,3 @@
     color: #c4d6d7;
     padding-left: 90px;
 }
-
-/* .mail-icon {
-    color: rgb(159, 159, 159);
-    position: relative;
-    font-size: 21px;
-    right: 40px;
-    top: 5px;
-} */

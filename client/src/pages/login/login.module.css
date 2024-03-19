@@ -4,7 +4,7 @@
 .main_div {
     background: linear-gradient(rgba(6, 28, 28, 0.4), rgba(6, 26, 26, 0.4)), url("../../images/room.jpeg");
     background-size: cover;
-    height: 100vh;
+    height: 95vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -78,13 +78,7 @@
     color: rgb(46, 12, 73);
 }
 
-/* .mail-icon {
-    color: rgb(159, 159, 159);
-    position: relative;
-    font-size: 21px;
-    right: 40px;
-    top: 5px;
-} */
+
 
 .first_link {
     margin-right: 100px;
