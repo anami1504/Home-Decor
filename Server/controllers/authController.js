@@ -1,6 +1,7 @@
 const { hashPassword, comparePassword } = require('../helpers/authHelper');
 const userModel = require('../models/userModel')
 const JWT = require('jsonwebtoken')
+var nodemailer = require('nodemailer');
 
 const registerController = async (req, res) => {
     try {
@@ -10,16 +11,16 @@ const registerController = async (req, res) => {
 
         //validations
         if (!name) {
-            return res.send({ error: 'Name is required' })
+            return res.send({ message: 'Name is required' })
         }
         if (!email) {
-            return res.send({ error: 'Email is required' })
+            return res.send({ message: 'Email is required' })
         }
         if (!password) {
-            return res.send({ error: 'Password is required' })
+            return res.send({ message: 'Password is required' })
         }
         if (!phone) {
-            return res.send({ error: 'Phone number is required' })
+            return res.send({ message: 'Phone number is required' })
         }
 
         //Check user
@@ -60,7 +61,7 @@ const loginController = async (req, res) => {
 
         //validation
         if (!email || !password) {
-            return res.status(404).send({
+            return res.status(200).send({
                 success: false,
                 message: 'Email and password required'
             })
@@ -69,7 +70,7 @@ const loginController = async (req, res) => {
         //check user
         const user = await userModel.findOne({ email })
         if (!user) {
-            return res.status(404).send({
+            return res.status(200).send({
                 success: false,
                 message: 'Invalid user or password'
             })
@@ -87,7 +88,7 @@ const loginController = async (req, res) => {
         const token = await JWT.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' })
         res.status(200).send({
             success: true,
-            message: 'Login successful',
+            message: 'Login Successful',
             user: {
                 name: user.name,
                 email: user.email,
@@ -109,4 +110,109 @@ const testController = (req, res) => {
     res.send('protected route')
 }
 
-module.exports = { registerController, loginController, testController }; 
+const forgotController = async (req, res) => {
+    try {
+        const { email } = req.body
+
+        const user = await userModel.findOne({ email: email })
+        if (!user) {
+            return res.status(200).send({
+                success: false,
+                message: 'Invalid email'
+            })
+            console.log("no user")
+        }
+        else {
+
+            const token = await JWT.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' })
+
+            // console.log(user.email)
+            console.log(token)
+            var transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: process.env.EMAIL,
+                    pass: process.env.PASSWORD
+                }
+            });
+
+            var mailOptions = {
+                from: { name: 'Nest Home Decor', address: process.env.EMAIL },
+                to: user.email,
+                subject: 'Reset password link',
+                text: `http://localhost:3000/resetpassword/${user._id}/${token}`
+            };
+
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log(error);
+                    res.status(500).send({
+                        success: false,
+                        message: "Error in sending link",
+                        error
+                    })
+                } else {
+                    res.status(200).send({
+                        success: true,
+                        message: "Reset Password link sent to mail"
+                    })
+                }
+            });
+
+        }
+    }
+
+    catch (error) {
+        console.log(error)
+        res.status(500).send({
+            success: false,
+            message: "Error in sending reset password link",
+            error
+        })
+    }
+}
+
+const resetController = async (req, res) => {
+    try {
+        const { id, token } = req.params
+        const { password } = req.body
+
+        await JWT.verify(token, process.env.JWT_SECRET, (error, decoded) => {
+            if (error) {
+                return res.status(200).send({
+                    success: false,
+                    message: "Error in reseting password"
+                })
+            }
+            else {
+                const hashedPassword = hashPassword(password).
+                    then(hashedPassword => {
+                        userModel.findByIdAndUpdate({ _id: id }, { password: hashedPassword }).
+                            then(pass => res.status(200).send({
+                                success: true,
+                                message: "Password updated"
+                            })).
+                            catch(error =>
+                                res.status(500).send({
+                                    success: false,
+                                    message: "Error in reseting password",
+                                    error
+                                })
+                            )
+                    })
+
+
+            }
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({
+            success: false,
+            message: "Error in reseting password",
+            error
+        })
+    }
+
+}
+
+module.exports = { registerController, loginController, testController, forgotController, resetController }; 

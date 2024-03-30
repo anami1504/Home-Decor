@@ -4,7 +4,7 @@
 .main_div {
     background: linear-gradient(rgba(7, 29, 29, 0.4), rgba(5, 29, 29, 0.4)), url("../../images/room.jpeg");
     background-size: cover;
-    height: 95vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;

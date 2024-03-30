@@ -30,6 +30,7 @@ function Login() {
             }
             else {
                 toast.error(res.data.message)
+                console.log(res.data)
             }
         } catch (error) {
             console.log(error)
@@ -54,7 +55,7 @@ function Login() {
 
                         <div className={login.links_div} >
                             <div className={login.link_div}>New user? <Link to='/signup' className={`${login.link} ${login.first_link}`}>Sign up</Link></div>
-                            <Link to='/reset' className={login.link}>Forgot password</Link>
+                            <Link to='/forgotpassword' className={login.link}>Forgot password</Link>
                         </div>
 
 

@@ -9,10 +9,16 @@
 
 
 /* ====================Navbar=================== */
+
+
 .navbar {
   background-color: #095256;
   padding-right: 20px;
   padding-left: 20px;
+  height: 9vh;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
 }
 
 .nav-link {
@@ -38,7 +44,7 @@
   font-family: "Dancing Script", cursive;
   margin: -6px;
   font-weight: 700;
-  font-size: 28px;
+  font-size: 29px;
 }
 
 .navbar-logo {

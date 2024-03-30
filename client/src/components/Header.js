@@ -19,7 +19,6 @@ function Header() {
 
     return (
         <>
-
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
                     <button
@@ -42,12 +41,12 @@ function Header() {
                         </Link>
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <NavLink to='/' style={{ paddingRight: "1rem" }} className="nav-link" >
+                                <NavLink to='/' style={{ paddingRight: "2rem" }} className="nav-link" >
                                     Home
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink to='/cat' style={{ paddingRight: "1rem" }} className="nav-link">
+                                <NavLink to='/cat' style={{ paddingRight: "2rem" }} className="nav-link">
                                     Categories
                                 </NavLink>
                             </li>
@@ -55,12 +54,12 @@ function Header() {
                             {
                                 !auth.user ? (<>
                                     <li className="nav-item">
-                                        <NavLink to='/login' style={{ paddingRight: "1rem" }} className="nav-link">
+                                        <NavLink to='/login' style={{ paddingRight: "2rem" }} className="nav-link">
                                             Login
                                         </NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <NavLink to='/signup' style={{ paddingRight: "1rem" }} className="nav-link">
+                                        <NavLink to='/signup' style={{ paddingRight: "2rem" }} className="nav-link">
                                             Sign Up
                                         </NavLink>
                                     </li>
@@ -68,7 +67,7 @@ function Header() {
                                 ) : (
                                     <>
                                         <li className="nav-item">
-                                            <NavLink to='/login' onClick={handleLogout} style={{ paddingRight: "1rem" }} className="nav-link">
+                                            <NavLink to='/login' onClick={handleLogout} style={{ paddingRight: "2rem" }} className="nav-link">
                                                 Logout
                                             </NavLink>
                                         </li>
