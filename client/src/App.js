@@ -8,7 +8,13 @@ import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
 import { Toaster } from 'react-hot-toast';
-import UserDashboard from './pages/Dashboard/UserDashboard';
+import UserDashboard from './pages/User/UserDashboard';
+import PrivateRoute from './components/Routes/Private';
+import AdminRoute from './components/Routes/AdminRoute';
+import AdminDashboard from './pages/Admin/AdminDashboard';
+import CreateCategory from './pages/Admin/CreateCategory';
+import CreateProduct from './pages/Admin/CreateProduct';
+import Users from './pages/Admin/Users';
 
 
 function App() {
@@ -19,7 +25,16 @@ function App() {
         <Route path='/' element={<Home />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
-        <Route path='/userdash' element={<UserDashboard />}></Route>
+        <Route path='/dashboard' element={<PrivateRoute />}>
+          <Route path='user' element={<UserDashboard />}></Route>
+        </Route>
+        <Route path='/dashboard' element={<AdminRoute />}>
+          <Route path='admin' element={<AdminDashboard />}></Route>
+          <Route path='admin/create-category' element={<CreateCategory />}></Route>
+          <Route path='admin/create-product' element={<CreateProduct />}></Route>
+          <Route path='admin/users' element={<Users />}></Route>
+        </Route>
+
         <Route path='/forgotpassword' element={<Forgot />}></Route>
         <Route path='/resetpassword/:id/:token' element={<Reset />}></Route>
         <Route path='/about' element={<About />}></Route>

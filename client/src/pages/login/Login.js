@@ -4,14 +4,16 @@ import login from './login.module.css'
 import Layout from '../../components/Layout'
 import axios from 'axios'
 import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/auth'
+
 
 function Login() {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
+    const location = useLocation()
     const [auth, setAuth] = useAuth()
 
     const handleSubmit = async (e) => {

@@ -68,3 +68,72 @@
   color: #b3d9dc;
   transition-delay: 200ms;
 }
+
+
+/* ========================footer========================== */
+.footer-support {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.footer {
+  background-color: #164d4e;
+  display: flex;
+  justify-content: space-around;
+  padding: 6rem;
+  height: 40vh;
+
+}
+
+.footer-heading {
+  color: white;
+  padding-bottom: 15px;
+}
+
+.footer-link {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 300;
+  padding: 2px 0;
+}
+
+.footer-icon {
+  color: white;
+  font-size: 20px;
+  font-weight: 100;
+  padding-right: 20px;
+}
+
+@media only screen and (max-width: 430px) {
+  .footer {
+    padding: 50px 15px 15px 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .footer-support {
+    padding-right: 30px;
+  }
+
+  .footer-get-in-touch {
+    padding-right: 30px;
+  }
+
+
+}
+
+.navbar-collapse {
+  background-color: #0c565af8;
+  padding: 15px;
+
+}
+
+/* ============Admin Menu================ */
+.list-group-item.active {
+  background-color: #618f92;
+  border-color: #8aafb1;
+}

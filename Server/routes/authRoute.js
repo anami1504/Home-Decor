@@ -1,5 +1,5 @@
 const express = require('express')
-const { registerController, loginController, testController, forgotController, resetController } = require('../controllers/authController')
+const { registerController, loginController, testController, forgotController, resetController, updateProfileController } = require('../controllers/authController')
 const { requireSignin, isAdmin } = require('../middlewares/authMiddleware')
 
 //router object
@@ -16,5 +16,17 @@ router.post('/forgotpassword', forgotController)
 router.post('/resetpassword/:id/:token', resetController)
 
 router.get('/test', requireSignin, isAdmin, testController)
+
+router.put('/userdashboard', updateProfileController)
+
+//protected user route
+router.get("/user-auth", requireSignin, (req, res) => {
+    res.status(200).send({ ok: true });
+})
+
+//protected admin route
+router.get("/admin-auth", requireSignin, isAdmin, (req, res) => {
+    res.status(200).send({ ok: true });
+})
 
 module.exports = router;

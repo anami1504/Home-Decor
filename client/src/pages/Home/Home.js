@@ -2,8 +2,14 @@ import React from 'react'
 import Layout from '../../components/Layout'
 import image1 from '../../images/Lamp.webp'
 import image2 from '../../images/livingrooms.jpg'
+import image3 from '../../images/vases.jpeg'
 import home from './home.module.css'
 import ProductTile from '../../components/ProductTile'
+import quality from '../../images/sofa.jpg'
+import design from '../../images/potdesign.jpg'
+import handpick from '../../images/holdingpot.jpg'
+import authentic from '../../images/sculpture.jpg'
+
 
 // import { useAuth } from '../../context/auth'
 
@@ -28,12 +34,12 @@ function Home() {
         },
         {
             id: 4,
-            image: image1,
+            image: image3,
             title: "Bronze hanging light"
         },
         {
             id: 5,
-            image: image1,
+            image: image3,
             title: "White aesthetic Sofa Set"
         },
         {
@@ -43,7 +49,7 @@ function Home() {
         },
         {
             id: 7,
-            image: image1,
+            image: image3,
             title: "Sofa Set for living room"
         },
     ]
@@ -70,6 +76,38 @@ function Home() {
                     }
 
 
+                </div>
+
+                <div className={home.about}>
+                    <h2 className={home.about_heading}>What makes us different</h2>
+                    <div className={home.about_row}>
+                        <div>
+                            <div className={home.about_section}>
+                                <div className={home.about_text}>High quality</div>
+                                <img src={quality} className={home.about_image} alt='' height='500px' width='300px' />
+                            </div>
+                        </div>
+                        <div>
+                            <div >
+
+                                <img src={handpick} className={home.about_image} alt='' height='500px' width='300px' />
+                                <div className={home.about_text} >Handpicked products</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div className={home.about_section}>
+                                <div className={home.about_text}>Authentic pieces</div>
+                                <img src={authentic} className={home.about_image} alt='' height='500px' width='300px' />
+                            </div>
+                        </div>
+                        <div>
+                            <div >
+
+                                <img src={design} className={home.about_image} alt='' height='500px' width='300px' />
+                                <div className={home.about_text}>Unique designs</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 {/* 

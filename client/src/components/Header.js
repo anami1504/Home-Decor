@@ -66,11 +66,44 @@ function Header() {
                                 </>
                                 ) : (
                                     <>
-                                        <li className="nav-item">
+                                        {<li className="nav-item dropdown">
+                                            <NavLink
+                                                className="nav-link dropdown-toggle"
+                                                to=''
+                                                role="button"
+                                                data-bs-toggle="dropdown"
+                                                aria-expanded="false"
+                                                style={{ paddingRight: "2rem" }}
+                                            >
+                                                Account
+                                            </NavLink>
+                                            <ul className="dropdown-menu">
+                                                <li>
+                                                    <Link className="dropdown-item " to={`/dashboard/${auth?.user?.role === 1 ? "admin" : "user"}`}  >
+                                                        Profile
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link className="dropdown-item" to='/login' onClick={handleLogout}  >
+                                                        Logout
+                                                    </Link>
+                                                </li>
+
+                                            </ul>
+                                        </li>}
+
+
+                                        {/* <li className="nav-item">
+
                                             <NavLink to='/login' onClick={handleLogout} style={{ paddingRight: "2rem" }} className="nav-link">
                                                 Logout
                                             </NavLink>
                                         </li>
+                                        <li className="nav-item">
+                                            <NavLink to='/dashboard' style={{ paddingRight: "2rem" }} className="nav-link">
+                                                Account
+                                            </NavLink>
+                                        </li> */}
                                     </>
                                 )
                             }

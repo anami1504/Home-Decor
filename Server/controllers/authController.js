@@ -92,7 +92,8 @@ const loginController = async (req, res) => {
             user: {
                 name: user.name,
                 email: user.email,
-                phone: user.phone
+                phone: user.phone,
+                role: user.role
             },
             token
         })
@@ -215,4 +216,31 @@ const resetController = async (req, res) => {
 
 }
 
-module.exports = { registerController, loginController, testController, forgotController, resetController }; 
+//update profile
+const updateProfileController = async (req, res) => {
+    try {
+        const { name, email, phone } = req.body
+        const user = await userModel.findOne({ email })
+        console.log(user)
+        console.log(req._id)
+        const updatedUser = await userModel.findByIdAndUpdate(req.user._id, {
+            name: name || user.name,
+            phone: phone || user.phone
+        }, { new: true })
+        res.status(200).send({
+            success: true,
+            message: "Profile updated successfully",
+            updatedUser
+        })
+
+    } catch (error) {
+        console.log(error)
+        res.status(404).send({
+            success: false,
+            message: 'Error in updating profile',
+            error
+        })
+    }
+}
+
+module.exports = { registerController, loginController, testController, forgotController, resetController, updateProfileController }; 
