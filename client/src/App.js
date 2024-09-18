@@ -15,6 +15,8 @@ import AdminDashboard from './pages/Admin/AdminDashboard';
 import CreateCategory from './pages/Admin/CreateCategory';
 import CreateProduct from './pages/Admin/CreateProduct';
 import Users from './pages/Admin/Users';
+import Products from './pages/Admin/Products';
+import UpdateProduct from './pages/Admin/UpdateProduct';
 
 
 function App() {
@@ -33,6 +35,8 @@ function App() {
           <Route path='admin/create-category' element={<CreateCategory />}></Route>
           <Route path='admin/create-product' element={<CreateProduct />}></Route>
           <Route path='admin/users' element={<Users />}></Route>
+          <Route path='admin/products' element={<Products />}></Route>
+          <Route path='admin/product/:slug' element={<UpdateProduct />}></Route>
         </Route>
 
         <Route path='/forgotpassword' element={<Forgot />}></Route>

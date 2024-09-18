@@ -20,7 +20,6 @@ function Spinner({ path = "login" }) {
     return (
         <>
             <div className="d-flex flex-column justify-content-center align-items-center" style={{ height: "100vh" }}>
-                <div className='text-center' style={{ fontSize: "19px" }}>Unauthorized access</div><br />
                 <div className='text-center' style={{ fontSize: "26px" }}>Redirecting to you in {count} seconds</div><br />
                 <div className="spinner-border" role="status">
                     <span className="visually-hidden">Loading...</span>

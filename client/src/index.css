@@ -137,3 +137,18 @@
   background-color: #618f92;
   border-color: #8aafb1;
 }
+
+/* =========================product card====================== */
+.card {
+  margin: 30px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.product-card-image {
+  height: 250px;
+
+}
