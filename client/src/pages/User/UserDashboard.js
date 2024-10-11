@@ -56,7 +56,7 @@ function UserDashboard() {
 
     return (
         <Layout>
-            <div style={{ paddingTop: "9vh" }} className={user.container}>
+            <div className={user.container}>
 
                 <div className={user.div1}>
 

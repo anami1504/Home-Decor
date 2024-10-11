@@ -17,6 +17,7 @@ import CreateProduct from './pages/Admin/CreateProduct';
 import Users from './pages/Admin/Users';
 import Products from './pages/Admin/Products';
 import UpdateProduct from './pages/Admin/UpdateProduct';
+import Explore from './pages/Explore';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <Toaster />
       <Routes>
         <Route path='/' element={<Home />}></Route>
+        <Route path='/explore' element={<Explore />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='/dashboard' element={<PrivateRoute />}>

@@ -1,4 +1,4 @@
-const { createProductController, getProductController, getSingleProductController, productPhotoController, deleteProductController, updateProductController } = require('../controllers/productController')
+const { createProductController, getProductController, getSingleProductController, productPhotoController, deleteProductController, updateProductController, productFiltersController } = require('../controllers/productController')
 const { requireSignin, isAdmin } = require('../middlewares/authMiddleware')
 const formidable = require('express-formidable')
 const express = require('express')
@@ -22,5 +22,8 @@ router.delete('/delete-product/:pid', deleteProductController)
 
 //update product
 router.put('/update-product/:pid', requireSignin, isAdmin, formidable(), updateProductController)
+
+// filter products
+router.post('/product-filters', productFiltersController)
 
 module.exports = router;

@@ -222,8 +222,7 @@ const updateProfileController = async (req, res) => {
         const { name, email, phone } = req.body
         const user = await userModel.findOne({ email })
         console.log(user)
-        console.log(req._id)
-        const updatedUser = await userModel.findByIdAndUpdate(req.user._id, {
+        const updatedUser = await userModel.findByIdAndUpdate(user._id, {
             name: name || user.name,
             phone: phone || user.phone
         }, { new: true })
