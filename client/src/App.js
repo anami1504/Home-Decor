@@ -18,6 +18,7 @@ import Users from './pages/Admin/Users';
 import Products from './pages/Admin/Products';
 import UpdateProduct from './pages/Admin/UpdateProduct';
 import Explore from './pages/Explore';
+import Search from './pages/Search';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/explore' element={<Explore />}></Route>
+        <Route path='/search' element={<Search />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='/dashboard' element={<PrivateRoute />}>

@@ -3,6 +3,7 @@ import { NavLink, Link } from 'react-router-dom'
 import { GiHummingbird } from "react-icons/gi";
 import { useAuth } from '../context/auth';
 import toast from 'react-hot-toast';
+import SearchInput from './Form/SearchInput';
 
 function Header() {
 
@@ -39,8 +40,10 @@ function Header() {
                                 <span className='navbar-logo-name'>Nest</span>
                             </span>
                         </Link>
+
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
+                            <SearchInput />
+                            <li className="nav-item ml-2">
                                 <NavLink to='/' style={{ paddingRight: "2rem" }} className="nav-link" >
                                     Home
                                 </NavLink>

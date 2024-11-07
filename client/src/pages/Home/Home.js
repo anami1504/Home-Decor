@@ -9,12 +9,17 @@ import quality from '../../images/sofa.jpg'
 import design from '../../images/potdesign.jpg'
 import handpick from '../../images/holdingpot.jpg'
 import authentic from '../../images/sculpture.jpg'
+import { useNavigate } from 'react-router-dom';
 
 
 // import { useAuth } from '../../context/auth'
 
 function Home() {
     // const [auth, setAuth] = useAuth()
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate('/search');
+    };
 
     const products = [
         {
@@ -63,7 +68,7 @@ function Home() {
 
                 <div className={home.first_div}>
                     <h1 className={home.heading}>We make your Home Elegant</h1>
-                    <button className={home.first_btn}>Explore</button>
+                    <button className={home.first_btn} onClick={handleClick}>Explore</button>
                 </div>
 
                 <div className={home.row}>
